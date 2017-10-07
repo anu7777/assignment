@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A layout example that shows off a responsive email layout.">
+    <title>Game Inbox</title>
+    
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
+    
+    
+    
+        <!--[if lte IE 8]>
+            <link rel="stylesheet" href="css/layouts/email-old-ie.css">
+        <![endif]-->
+        <!--[if gt IE 8]><!-->
+            <link rel="stylesheet" href="css/layouts/email.css">
+        <!--<![endif]-->
+</head>
+<body>
+
+
+
+
+
+
+<div id="layout" class="content pure-g">
+    <div id="nav" class="pure-u">
+        <a href="#" class="nav-menu-button">Menu</a>
+
+        <div class="nav-inner">
+            <button class="primary-button pure-button" onclick="new_game()">Compose</button>
+
+            <div class="pure-menu">
+                <ul class="pure-menu-list">
+                    <li class="pure-menu-item" onclick="open_inbox()"><a class="pure-menu-link">Inbox </a></li>
+                    <li class="pure-menu-item"><a href="#" class="pure-menu-link">Important</a></li>
+                    <li class="pure-menu-item"><a href="#" class="pure-menu-link">Sent</a></li>
+                    <li class="pure-menu-item"><a href="#" class="pure-menu-link">Drafts</a></li>
+                    <li class="pure-menu-item" onclick="display_trash_list(0)"><a  class="pure-menu-link">Trash</a></li>
+                    <li class="pure-menu-heading">Labels</li>
+                    <li class="pure-menu-item"><a href="#" class="pure-menu-link"><span class="email-label-personal"></span>Personal</a></li>
+                    <li class="pure-menu-item"><a href="#" class="pure-menu-link"><span class="email-label-work"></span>Work</a></li>
+                    <li class="pure-menu-item"><a href="#" class="pure-menu-link"><span class="email-label-travel"></span>Travel</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="list"></div>
+
+    <div id="main" class="pure-u-1">
+
+    </div>
+</div>
+
+<script src="https://yui-s.yahooapis.com/3.18.1/build/yui/yui-min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="scripts/main.js"></script>
+<script>
+    YUI().use('node-base', 'node-event-delegate', function (Y) {
+
+        var menuButton = Y.one('.nav-menu-button'),
+            nav        = Y.one('#nav');
+
+       
+        menuButton.on('click', function (e) {
+            nav.toggleClass('active');
+        });
+
+
+    });
+
+   
+</script>
+
+
+
+
+</body>
+</html>
